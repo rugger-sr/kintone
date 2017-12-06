@@ -237,8 +237,8 @@ describe Kintone::Query do
       where(:target, :result) do
         [
           [Kintone::Query.new { field(:dropdown).in(['"A"', '"B"']) }, 'dropdown in ("A", "B")'],
-          [Kintone::Query.new { field(:dropdown).in(%w(A B)) }, 'dropdown in ("A", "B")'],
-          [Kintone::Query.new { field(:dropdown).in([:A, :B]) }, 'dropdown in ("A", "B")'],
+          [Kintone::Query.new { field(:dropdown).in(%w[A B]) }, 'dropdown in ("A", "B")'],
+          [Kintone::Query.new { field(:dropdown).in(%i[A B]) }, 'dropdown in ("A", "B")'],
           [Kintone::Query.new { field(:dropdown).in([100, 200]) }, 'dropdown in (100, 200)'],
           [Kintone::Query.new { field('作成者').in([login_user]) }, '作成者 in (LOGINUSER())']
         ]
@@ -253,8 +253,8 @@ describe Kintone::Query do
       where(:target, :result) do
         [
           [Kintone::Query.new { f(:dropdown).in(['"A"', '"B"']) }, 'dropdown in ("A", "B")'],
-          [Kintone::Query.new { f(:dropdown).in(%w(A B)) }, 'dropdown in ("A", "B")'],
-          [Kintone::Query.new { f(:dropdown).in([:A, :B]) }, 'dropdown in ("A", "B")'],
+          [Kintone::Query.new { f(:dropdown).in(%w[A B]) }, 'dropdown in ("A", "B")'],
+          [Kintone::Query.new { f(:dropdown).in(%i[A B]) }, 'dropdown in ("A", "B")'],
           [Kintone::Query.new { f(:dropdown).in([100, 200]) }, 'dropdown in (100, 200)'],
           [Kintone::Query.new { f('作成者').in([login_user]) }, '作成者 in (LOGINUSER())']
         ]
@@ -273,11 +273,11 @@ describe Kintone::Query do
             'dropdown not in ("A", "B")'
           ],
           [
-            Kintone::Query.new { field(:dropdown).not_in(%w(A B)) },
+            Kintone::Query.new { field(:dropdown).not_in(%w[A B]) },
             'dropdown not in ("A", "B")'
           ],
           [
-            Kintone::Query.new { field(:dropdown).not_in([:A, :B]) },
+            Kintone::Query.new { field(:dropdown).not_in(%i[A B]) },
             'dropdown not in ("A", "B")'
           ],
           [
@@ -304,11 +304,11 @@ describe Kintone::Query do
             'dropdown not in ("A", "B")'
           ],
           [
-            Kintone::Query.new { f(:dropdown).not_in(%w(A B)) },
+            Kintone::Query.new { f(:dropdown).not_in(%w[A B]) },
             'dropdown not in ("A", "B")'
           ],
           [
-            Kintone::Query.new { f(:dropdown).not_in([:A, :B]) },
+            Kintone::Query.new { f(:dropdown).not_in(%i[A B]) },
             'dropdown not in ("A", "B")'
           ],
           [

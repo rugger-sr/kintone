@@ -14,7 +14,7 @@ class Kintone::Query
 
     refine String do
       def query_format
-        if self =~ /\A".+"\z/ then self
+        if match?(/\A".+"\z/) then self
         else "\"#{self}\""
         end
       end

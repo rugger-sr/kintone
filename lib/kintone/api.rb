@@ -10,11 +10,11 @@ require 'kintone/kintone_error'
 class Kintone::Api
   BASE_PATH = '/k/v1/'.freeze
   COMMAND = '%s.json'.freeze
-  ACCESSIBLE_COMMAND = [
-    :record, :records, :form, :app_acl, :record_acl,
-    :field_acl, :template_space, :space, :space_body, :space_thread,
-    :space_members, :guests, :app, :apps, :apis,
-    :bulk_request, :bulk, :file
+  ACCESSIBLE_COMMAND = %i[
+    record records form app_acl record_acl
+    field_acl template_space space space_body space_thread
+    space_members guests app apps apis
+    bulk_request bulk file
   ].freeze
 
   def initialize(domain, user, password = nil)

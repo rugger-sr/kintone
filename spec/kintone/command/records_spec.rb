@@ -72,7 +72,7 @@ describe Kintone::Command::Records do
           )
       end
 
-      let(:fields) { %w(レコード番号 created_time dropdown) }
+      let(:fields) { %w[レコード番号 created_time dropdown] }
       let(:response_data) do
         { 'records' => [{ 'record_id' => { 'type' => 'RECORD_NUMBER', 'value' => '1' } }] }
       end

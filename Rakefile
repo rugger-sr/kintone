@@ -6,4 +6,4 @@ RSpec::Core::RakeTask.new
 RuboCop::RakeTask.new
 
 task default: :travis
-task travis: [:spec, :rubocop]
+task travis: %i[spec rubocop]

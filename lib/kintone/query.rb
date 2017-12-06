@@ -75,7 +75,7 @@ class Kintone::Query
   def function_string(function)
     function.instance_eval do
       class << self
-        define_method :query_format, proc { self }
+        define_method :query_format, -> { self }
       end
     end
     function
